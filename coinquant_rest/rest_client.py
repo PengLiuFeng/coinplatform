@@ -17,6 +17,7 @@ from asyncio import (
 from json import loads
 
 from aiohttp import ClientSession, ClientResponse
+import logging
 
 
 # 在Windows系统上必须使用Selector事件循环，否则可能导致程序崩溃
@@ -118,6 +119,7 @@ class RestClient(object):
     * 重载on_failed方法来实现请求失败的标准回调处理
     * 重载on_error方法来实现请求异常的标准回调处理
     """
+    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
     def __init__(self):
         """"""

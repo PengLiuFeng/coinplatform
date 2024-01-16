@@ -9,6 +9,7 @@ import base64
 import hashlib
 import hmac
 import json
+import logging
 import sys
 import time
 from copy import copy
@@ -256,7 +257,7 @@ class OkxRestApi(RestClient):
 
         if self.simulated:
             request.headers["x-simulated-trading"] = "1"
-
+        logging.info(f"请求 request: {request}")
         return request
 
     def connect(
